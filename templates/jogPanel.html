@@ -1,0 +1,113 @@
+﻿<style>
+    .cordinate{
+        margin-left:0px;
+        margin-top:2em;
+        width:200px;
+    }
+    .jogDial{
+       
+        display:inline-block;
+    }
+    .jogDial .boarder
+    {
+          border:solid 1px black;
+          border-radius: 5px;
+          background-color:#a6cff1;
+          padding:2em;
+    }
+    .joyStickdivContainer
+    {
+        width:400px;
+        height:400px;
+    }
+    .joyStickdiv{
+        width:auto;
+        height:400px;
+        border:1px solid black;
+        background-color:#37cb03
+    }
+</style>
+
+<div class="row">
+    <div class="col-lg-8">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="jogDial">
+                    <div>X-Axis</div>
+                    <div class="boarder">
+                        
+                        <div>
+                            <rzslider rz-slider-model="$ctrl.xJogSlider.value"
+                                      rz-slider-options="$ctrl.xJogSlider.options"></rzslider>
+                        </div>
+                        <div>
+                            <span class="cordinate badge">ABS {{$ctrl.xAbsolute | number : 2}}: REL {{$ctrl.xPosition | number : 2}}</span>
+                        </div>
+                        <div>
+                            <jog-dial data-degree="$ctrl.xRotation" on-drag-end="$ctrl.xOnDragEnd(rotation)"  on-drag="$ctrl.xOnDrag(rotation)"></jog-dial>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-lock"></span></button>
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-home"></span></button>
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove-circle"></span></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="jogDial">
+                    <div>Y-Axis</div>
+                    <div class="boarder">
+                        
+                        <div>
+                            <rzslider rz-slider-model="$ctrl.yJogSlider.value"
+                                      rz-slider-options="$ctrl.yJogSlider.options"></rzslider>
+                        </div>
+                        <div role="presentation"><span class="cordinate badge">ABS {{$ctrl.yAbsolute | number : 2}}: REL  {{$ctrl.yPosition | number : 2}}</span></div>
+                        <div>
+                            <jog-dial data-degree="$ctrl.yRotation" on-drag-end="$ctrl.yOnDragEnd(rotation)" on-drag="$ctrl.yOnDrag(rotation)"></jog-dial>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-lock"></span></button>
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-home"></span></button>
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove-circle"></span></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="jogDial">
+                    <div>Z-Axis</div>
+                    <div class="boarder">
+                     
+                        <div>
+                            <rzslider rz-slider-model="$ctrl.zJogSlider.value"
+                                      rz-slider-options="$ctrl.zJogSlider.options"></rzslider>
+                        </div>
+                        <div><span class="cordinate badge">ABS {{$ctrl.zAbsolute | number : 3}} : REL {{$ctrl.zPosition | number : 3}}</span></div>
+                        <div>
+                            <jog-dial data-degree="$ctrl.zRotation" on-drag-end="$ctrl.zOnDragEnd(rotation)" on-drag="$ctrl.zOnDrag(rotation)"></jog-dial>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-lock"></span></button>
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-home"></span></button>
+                            <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-remove-circle"></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        Speed Jogger Pad
+        <div class="joyStickdivContainer">
+            <div class="joyStickdiv" id="joyStick1" name="joyStick1"></div>
+        </div>
+             
+    </div>
+ </div>
+<div class="row">
+  <div class="col-lg-4">
+    Command Log
+    <ul>
+
+        <li ng-repeat="item in $ctrl.commandLog">{{item.timestamp | date}} - {{item.message}}</li>
+    </ul>
+</div>
+</div>

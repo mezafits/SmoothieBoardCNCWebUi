@@ -1,0 +1,81 @@
+﻿<html>
+<head>
+    <meta charset="utf-8">
+    <title>Smoothieboard CNC Web by Chad Downey</title>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/jogDial/TweenMax.min.js"></script>
+    <script src="Scripts/jogDial/Draggable.min.js"></script>
+    <script src="Scripts/nipplejs/nipplejs.min.js"></script>
+    <script src="Scripts/Controllers/config.js"></script>
+    <script src="Scripts/Controllers/Controllers.js"></script>
+    <script type="text/javascript" src="Scripts/functionscnc.js"></script>
+    <script src="Scripts/angular-ui/ui-bootstrap.min.js"></script>
+    <script src="Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+    <script src="Scripts/slider/rzslider.min.js"></script>
+    <script src="Scripts/fileUpload/angular-file-upload.min.js"></script>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/rzslider.min.css" rel="stylesheet" />
+</head>
+
+<body ng-app="cncSmoothie" ng-controller="AppController">
+    <style>
+        .horizontal-line{
+            border-bottom:1px solid black;
+            width:100%;
+            margin-top:5px;
+            margin-bottom:5px;
+        }
+        .PanelContainer {
+            margin: 20px;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+
+        .input-group {
+            margin-top: 5px;
+        }
+    </style>
+    <div class="row">
+        <div class="col-lg-12">
+            <h2>Smoothie CNC UI</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <uib-tabset active="activeJustified" justified="true">
+                <uib-tab index="0" heading="Jog Panel">
+                    <div class="jumbotron PanelContainer">
+                        <jog-Panel></jog-Panel>
+                    </div>
+                </uib-tab>
+                <uib-tab index="1" heading="Job Area">
+                    <div class="jumbotron PanelContainer">
+                        <job-Panel></job-Panel>
+                    </div>
+                </uib-tab>
+                <uib-tab index="2" heading="Configuration Area">
+                    <div class="jumbotron PanelContainer">
+                        <div style="width:400px">
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">Max X Axis</span>
+                                <input type="text" ng-model='options.limit_max_x_axis' class="form-control" placeholder="Max X Axis" aria-describedby="basic-addon1">
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1">Max Y Axis</span>
+                                <input type="text" ng-model='options.limit_max_y_axis' class="form-control" placeholder="Max Y Axis" aria-describedby="basic-addon1">
+                            </div>
+                        </div>
+                    </div>
+                </uib-tab>
+            </uib-tabset>
+        </div>
+    </div>
+
+
+
+
+
+</body>
+</html>
